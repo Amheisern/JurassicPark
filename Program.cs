@@ -6,11 +6,11 @@ namespace JurassicPark
 {
     class DinosDatabase
     {
-        private List<Dino> Dinos { get; set; } = new List<Dino>();
+        private List<Dino> Dinos = new List<Dino>();
 
         public void FindDinos(string dinoName)
         {
-            Dino foundDino = Dinos.FirstOrDefault(dino => dino.name.ToUpper().Contains(dinoName.ToUpper()));
+            Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
         }
         public void RemoveDinos(Dino dinoToDelete)
         {
@@ -19,14 +19,14 @@ namespace JurassicPark
         //Adding a Dino to DinosDatabase
         public void AddDinos(Dino newDino)
         {
-            Dino.add(newDino);
+            Dinos.Add(newDino);
         }
         // public void DisplayDinos(Dino ShowDino)
         // {
 
         // }
     }
-    class Dinos
+    class Dino
     {
         public string Name { get; set; }
         public string Diet { get; set; }
