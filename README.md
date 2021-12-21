@@ -32,11 +32,11 @@ problem
   data
   class for dinos
   class for dino data base
-  -- method to quit
-  -- method for Remove
-  -- method for Add
-  -- method for find
-  -- method for transfer (update)
+  -- method to quit Q
+  -- method for Remove R
+  -- method for Add A
+  -- method for find F
+  -- method for transfer T (update)
   -- method to display # of herb and carnivores
   -- method to show all properties of a dino object
   method
@@ -71,12 +71,12 @@ problem
   --- If dino not found display " No such Dino "
   --- If dino is found display dino name and location
   If choice is "T"
-    -- ask user "which dino are you looking for?"
+  -- ask user "which dino are you looking for?"
   --- If dino not found display " No such Dino "
   --- If dino is found display dino name and location
   --- Ask user which property they would changes
 
   If choice is "S"
-   -- ask user "which dino are you looking for?"
+  -- ask user "which dino are you looking for?"
   --- If dino not found display " No such Dino "
   --- If dino is found display all properties

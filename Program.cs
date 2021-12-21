@@ -85,7 +85,42 @@ namespace JurassicPark
             //While user hasn't input "Q" keep showing menu
             while (keepGoing)
             {
-                Console.WriteLine("test");
+                Console.WriteLine();
+                Console.WriteLine("Please choose from the following D.R.A.F.T.S menu");
+                Console.WriteLine("(D)isplay a dinosaur from database");
+                Console.WriteLine("(R)emove a dinosaur from database");
+                Console.WriteLine("(A)dd a dinosaur to database");
+                Console.WriteLine("(F)ind a dinosaur in the database");
+                Console.WriteLine("(T)ransfer a dinosaur to a different enclosure");
+                Console.WriteLine("(S)how number of herbivores and carnivores ");
+                Console.WriteLine("(Q)uit to exit menu");
+                var choice = Console.ReadLine().ToUpper();
+
+                switch (choice)
+                {
+                    case "D":
+
+                    case "R":
+
+                    case "A":
+
+                    case "F":
+                        // public void FindDinos(string dinoName)
+                        //Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
+                        var name = PromptForString("Please type the name of the Dinosaur");
+                        Dino foundDino = DinosDatabase.FindDinos(name);
+                        return foundDino;
+                    case "T":
+
+                    case "S":
+
+                    case "Q":
+                        keepGoing = false;
+                        break;
+                    default:
+                        Console.WriteLine("That was not a valid selection!");
+                        break;
+                }
             }
         }
     }
