@@ -39,6 +39,7 @@ namespace JurassicPark
             // diet = Diet;
             // weight = Weight;
             // enclosure = Enclosure;
+            // need to add all properties and format
             Console.WriteLine($"Dino name: {Name}");
 
         }
@@ -118,7 +119,12 @@ namespace JurassicPark
                     case "R":
 
                     case "A":
+                        var dino = new Dino();
 
+                        dino.Name = PromptForString("What is the name of the dinosaur?");
+                        dino.
+                        //dino.DisplayDinos();
+                        break;
                     // weight in tons  
 
                     case "F":
