@@ -122,7 +122,7 @@ namespace JurassicPark
                         var dino = new Dino();
 
                         dino.Name = PromptForString("What is the name of the dinosaur?");
-                        dino.
+                        dino.Diet = PromptForString("");
                         //dino.DisplayDinos();
                         break;
                     // weight in tons  
