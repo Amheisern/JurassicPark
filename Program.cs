@@ -8,9 +8,10 @@ namespace JurassicPark
     {
         private List<Dino> Dinos = new List<Dino>();
 
-        public void FindDinos(string dinoName)
+        public Dino FindDinos(string dinoName)
         {
             Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
+            return foundDino;
         }
         public void RemoveDinos(Dino dinoToDelete)
         {
@@ -28,11 +29,15 @@ namespace JurassicPark
     }
     class Dino
     {
+
         public string Name { get; set; }
         public string Diet { get; set; }
         public int weight { get; set; }
         public int Enclosure { get; set; }
-        public DateTime Date { get; set; } // Need help with this
+        //  public List<Card> CurrentCards { get; set; } = new List<Card>();
+        public DateTime Date { get; set; } = DateTime.Now;// Need help with this
+
+        public void DinoDisplay();
     }
 
     class Program
@@ -108,8 +113,9 @@ namespace JurassicPark
                         // public void FindDinos(string dinoName)
                         //Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
                         var name = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDino = DinosDatabase.FindDinos(name);
-                        return foundDino;
+                        Dino foundDino = database.FindDinos(name);
+                        break;
+
                     case "T":
 
                     case "S":
