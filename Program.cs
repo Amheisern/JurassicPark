@@ -22,22 +22,27 @@ namespace JurassicPark
         {
             Dinos.Add(newDino);
         }
-        // public void DisplayDinos(Dino ShowDino)
-        // {
-
-        // }
     }
     class Dino
     {
 
         public string Name { get; set; }
         public string Diet { get; set; }
-        public int weight { get; set; }
+        public int Weight { get; set; }
         public int Enclosure { get; set; }
         //  public List<Card> CurrentCards { get; set; } = new List<Card>();
         public DateTime Date { get; set; } = DateTime.Now;// Need help with this
 
-        public void DinoDisplay();
+        public void DisplayDinos()
+        {
+            // name = Name;
+            // diet = Diet;
+            // weight = Weight;
+            // enclosure = Enclosure;
+            Console.WriteLine($"Dino name: {Name}");
+
+        }
+        // public void DinoDisplay();
     }
 
     class Program
@@ -86,6 +91,11 @@ namespace JurassicPark
             var keepGoing = true;
 
             DisplayGreeting();
+            var newDino = new Dino();
+            newDino.Name = "Frank";
+            //("frank", "carnivore", 6, 2);
+            newDino.DisplayDinos();
+
 
             //While user hasn't input "Q" keep showing menu
             while (keepGoing)
@@ -108,6 +118,8 @@ namespace JurassicPark
                     case "R":
 
                     case "A":
+
+                    // weight in tons  
 
                     case "F":
                         // public void FindDinos(string dinoName)
