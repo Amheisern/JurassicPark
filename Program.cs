@@ -40,7 +40,10 @@ namespace JurassicPark
             // weight = Weight;
             // enclosure = Enclosure;
             // need to add all properties and format
-            Console.WriteLine($"Dino name: {Name}");
+            Console.WriteLine($"The dinosaurs name is {Name}");
+            Console.WriteLine($"This dinosaur is a {Diet} and weighs {Weight} tons");
+            Console.WriteLine($"This dinosaur was acquired {Date} and is currently in enclosure number {Enclosure}");
+
 
         }
         // public void DinoDisplay();
@@ -122,8 +125,9 @@ namespace JurassicPark
                         var dino = new Dino();
 
                         dino.Name = PromptForString("What is the name of the dinosaur?");
-                        dino.Diet = PromptForString("");
-                        //dino.DisplayDinos();
+                        dino.Diet = PromptForString("Is the dinosaur a carnivore or herbivore?");
+                        dino.Weight = PromptForString("In tons, what is the weight of the dinosaur?");
+                        dino.Enclosure = PromptForString("What is the number of the enclosure?");
                         break;
                     // weight in tons  
 
