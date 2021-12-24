@@ -120,6 +120,22 @@ namespace JurassicPark
                     case "D":
 
                     case "R":
+                        var name = PromptForString("Please type the name of the Dinosaur");
+                        Dino foundDino = database.FindDinos(name);
+                        if (foundDino == null)
+                        {
+                            Console.WriteLine("No match found in database!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
+                            var confirm = PromptForString("Please confirm removal of dinosaur. [Y/N]").ToUpper();
+                            if (confirm == "Y")
+                            {
+                                database.Remove(foundDino);
+                            }
+                        }
+                        break;
 
 
                     case "A":
