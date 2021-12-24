@@ -118,6 +118,17 @@ namespace JurassicPark
                 switch (choice)
                 {
                     case "D":
+                        var name = PromptForString("Please type the name of the Dinosaur");
+                        Dino foundDino = database.FindDinos(name);
+                        if (foundDino == null)
+                        {
+                            Console.WriteLine("No match found in database!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
+                            foundDino.DisplayDinos();
+                        }
 
                     case "R":
                         var name = PromptForString("Please type the name of the Dinosaur");
@@ -159,13 +170,28 @@ namespace JurassicPark
                         }
                         else
                         {
-                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ")
+                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
                         }
                         break;
 
                     case "T":
+                        var name = PromptForString("Please type the name of the Dinosaur");
+                        Dino foundDino = database.FindDinos(name);
+                        if (foundDino == null)
+                        {
+                            Console.WriteLine("No match found in database!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
+                            foundDino.Enclosure = PromptForInteger("What is the new enclosure number?");
+                        }
+                        break;
+
 
                     case "S":
+
+
 
                     case "Q":
                         keepGoing = false;
