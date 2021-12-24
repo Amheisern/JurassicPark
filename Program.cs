@@ -121,13 +121,14 @@ namespace JurassicPark
 
                     case "R":
 
+
                     case "A":
                         var dino = new Dino();
 
                         dino.Name = PromptForString("What is the name of the dinosaur?");
                         dino.Diet = PromptForString("Is the dinosaur a carnivore or herbivore?");
-                        dino.Weight = PromptForString("In tons, what is the weight of the dinosaur?");
-                        dino.Enclosure = PromptForString("What is the number of the enclosure?");
+                        dino.Weight = PromptForInteger("In tons, what is the weight of the dinosaur?");
+                        dino.Enclosure = PromptForInteger("What is the number of the enclosure?");
                         break;
                     // weight in tons  
 
@@ -136,6 +137,14 @@ namespace JurassicPark
                         //Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
                         var name = PromptForString("Please type the name of the Dinosaur");
                         Dino foundDino = database.FindDinos(name);
+                        if (foundDino == null)
+                        {
+                            Console.WriteLine("No match found in database!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ")
+                        }
                         break;
 
                     case "T":
