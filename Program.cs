@@ -95,10 +95,10 @@ namespace JurassicPark
             var keepGoing = true;
 
             DisplayGreeting();
-            var newDino = new Dino();
-            newDino.Name = "Frank";
+            //var newDino = new Dino();
+            //newDino.Name = "Frank";
             //("frank", "carnivore", 6, 2);
-            newDino.DisplayDinos();
+            //newDino.DisplayDinos();
 
 
             //While user hasn't input "Q" keep showing menu
@@ -129,21 +129,22 @@ namespace JurassicPark
                             Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
                             foundDino.DisplayDinos();
                         }
+                        break;
 
                     case "R":
-                        var name = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDino = database.FindDinos(name);
-                        if (foundDino == null)
+                        var nameR = PromptForString("Please type the name of the Dinosaur");
+                        Dino foundDinoR = database.FindDinos(nameR);
+                        if (foundDinoR == null)
                         {
                             Console.WriteLine("No match found in database!");
                         }
                         else
                         {
-                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
+                            Console.WriteLine($"Found! {foundDinoR.Name} is in encloser {foundDinoR.Enclosure} ");
                             var confirm = PromptForString("Please confirm removal of dinosaur. [Y/N]").ToUpper();
                             if (confirm == "Y")
                             {
-                                database.Remove(foundDino);
+                                database.RemoveDinos(foundDinoR);
                             }
                         }
                         break;
@@ -162,29 +163,29 @@ namespace JurassicPark
                     case "F":
                         // public void FindDinos(string dinoName)
                         //Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
-                        var name = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDino = database.FindDinos(name);
-                        if (foundDino == null)
+                        var nameF = PromptForString("Please type the name of the Dinosaur");
+                        Dino foundDinoF = database.FindDinos(nameF);
+                        if (foundDinoF == null)
                         {
                             Console.WriteLine("No match found in database!");
                         }
                         else
                         {
-                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
+                            Console.WriteLine($"Found! {foundDinoF.Name} is in encloser {foundDinoF.Enclosure} ");
                         }
                         break;
 
                     case "T":
-                        var name = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDino = database.FindDinos(name);
-                        if (foundDino == null)
+                        var nameT = PromptForString("Please type the name of the Dinosaur");
+                        Dino foundDinoT = database.FindDinos(nameT);
+                        if (foundDinoT == null)
                         {
                             Console.WriteLine("No match found in database!");
                         }
                         else
                         {
-                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
-                            foundDino.Enclosure = PromptForInteger("What is the new enclosure number?");
+                            Console.WriteLine($"Found! {foundDinoT.Name} is in encloser {foundDinoT.Enclosure} ");
+                            foundDinoT.Enclosure = PromptForInteger("What is the new enclosure number?");
                         }
                         break;
 
