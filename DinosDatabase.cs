@@ -60,7 +60,7 @@ namespace JurassicPark
             .Count();
             var numberOfHerbivore = dinos.Where(dino => dino.Diet.Contains("Herbivore"))
             .Count();
-            Console.WriteLine(numberOfCarnivore);
+            Console.WriteLine($"we currently have {numberOfCarnivore} and {numberOfHerbivore}");
         }
     }
 }
