@@ -1,28 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace JurassicPark
 {
-    class DinosDatabase
-    {
-        private List<Dino> Dinos = new List<Dino>();
-
-        public Dino FindDinos(string dinoName)
-        {
-            Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
-            return foundDino;
-        }
-        public void RemoveDinos(Dino dinoToDelete)
-        {
-            Dinos.Remove(dinoToDelete);
-        }
-        //Adding a Dino to DinosDatabase
-        public void AddDinos(Dino newDino)
-        {
-            Dinos.Add(newDino);
-        }
-    }
     class Dino
     {
 
@@ -118,75 +97,27 @@ namespace JurassicPark
                 switch (choice)
                 {
                     case "D":
-                        var name = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDino = database.FindDinos(name);
-                        if (foundDino == null)
-                        {
-                            Console.WriteLine("No match found in database!");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
-                            foundDino.DisplayDinos();
-                        }
+                        DisplayMenu(database);
                         break;
 
                     case "R":
-                        var nameR = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDinoR = database.FindDinos(nameR);
-                        if (foundDinoR == null)
-                        {
-                            Console.WriteLine("No match found in database!");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Found! {foundDinoR.Name} is in encloser {foundDinoR.Enclosure} ");
-                            var confirm = PromptForString("Please confirm removal of dinosaur. [Y/N]").ToUpper();
-                            if (confirm == "Y")
-                            {
-                                database.RemoveDinos(foundDinoR);
-                            }
-                        }
+                        RemoveMenu(database);
                         break;
 
 
                     case "A":
-                        var dino = new Dino();
-
-                        dino.Name = PromptForString("What is the name of the dinosaur?");
-                        dino.Diet = PromptForString("Is the dinosaur a carnivore or herbivore?");
-                        dino.Weight = PromptForInteger("In tons, what is the weight of the dinosaur?");
-                        dino.Enclosure = PromptForInteger("What is the number of the enclosure?");
+                        AddMenu();
                         break;
                     // weight in tons  
 
                     case "F":
                         // public void FindDinos(string dinoName)
                         //Dino foundDino = Dinos.FirstOrDefault(dino => dino.Name.ToUpper().Contains(dinoName.ToUpper()));
-                        var nameF = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDinoF = database.FindDinos(nameF);
-                        if (foundDinoF == null)
-                        {
-                            Console.WriteLine("No match found in database!");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Found! {foundDinoF.Name} is in encloser {foundDinoF.Enclosure} ");
-                        }
+                        FindMenu(database);
                         break;
 
                     case "T":
-                        var nameT = PromptForString("Please type the name of the Dinosaur");
-                        Dino foundDinoT = database.FindDinos(nameT);
-                        if (foundDinoT == null)
-                        {
-                            Console.WriteLine("No match found in database!");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Found! {foundDinoT.Name} is in encloser {foundDinoT.Enclosure} ");
-                            foundDinoT.Enclosure = PromptForInteger("What is the new enclosure number?");
-                        }
+                        TransferMenu(database);
                         break;
 
 
@@ -201,6 +132,79 @@ namespace JurassicPark
                         Console.WriteLine("That was not a valid selection!");
                         break;
                 }
+            }
+        }
+
+        private static void TransferMenu(DinosDatabase database)
+        {
+            var nameT = PromptForString("Please type the name of the Dinosaur");
+            Dino foundDinoT = database.FindDinos(nameT);
+            if (foundDinoT == null)
+            {
+                Console.WriteLine("No match found in database!");
+            }
+            else
+            {
+                Console.WriteLine($"Found! {foundDinoT.Name} is in encloser {foundDinoT.Enclosure} ");
+                foundDinoT.Enclosure = PromptForInteger("What is the new enclosure number?");
+            }
+        }
+
+        private static void FindMenu(DinosDatabase database)
+        {
+            var nameF = PromptForString("Please type the name of the Dinosaur");
+            Dino foundDinoF = database.FindDinos(nameF);
+            if (foundDinoF == null)
+            {
+                Console.WriteLine("No match found in database!");
+            }
+            else
+            {
+                Console.WriteLine($"Found! {foundDinoF.Name} is in encloser {foundDinoF.Enclosure} ");
+            }
+        }
+
+        private static void AddMenu()
+        {
+            var dino = new Dino();
+
+            dino.Name = PromptForString("What is the name of the dinosaur?");
+            dino.Diet = PromptForString("Is the dinosaur a carnivore or herbivore?");
+            dino.Weight = PromptForInteger("In tons, what is the weight of the dinosaur?");
+            dino.Enclosure = PromptForInteger("What is the number of the enclosure?");
+        }
+
+        private static void RemoveMenu(DinosDatabase database)
+        {
+            var nameR = PromptForString("Please type the name of the Dinosaur");
+            Dino foundDinoR = database.FindDinos(nameR);
+            if (foundDinoR == null)
+            {
+                Console.WriteLine("No match found in database!");
+            }
+            else
+            {
+                Console.WriteLine($"Found! {foundDinoR.Name} is in encloser {foundDinoR.Enclosure} ");
+                var confirm = PromptForString("Please confirm removal of dinosaur. [Y/N]").ToUpper();
+                if (confirm == "Y")
+                {
+                    database.RemoveDinos(foundDinoR);
+                }
+            }
+        }
+
+        private static void DisplayMenu(DinosDatabase database)
+        {
+            var name = PromptForString("Please type the name of the Dinosaur");
+            Dino foundDino = database.FindDinos(name);
+            if (foundDino == null)
+            {
+                Console.WriteLine("No match found in database!");
+            }
+            else
+            {
+                Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
+                foundDino.DisplayDinos();
             }
         }
     }
