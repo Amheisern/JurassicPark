@@ -107,7 +107,13 @@ namespace JurassicPark
 
 
                     case "A":
-                        AddMenu();
+                        var dino = new Dino();
+                        dino.Name = PromptForString("What is the name of the dinosaur? : ");
+                        dino.Diet = PromptForString("Is the dinosaur a carnivore or herbivore? : ");
+                        dino.Weight = PromptForInteger("In tons, what is the weight of the dinosaur? : ");
+                        dino.Enclosure = PromptForInteger("What is the number of the enclosure? : ");
+                        Console.WriteLine($"Added on{dino.Date}");
+                        database.AddDinos(dino);
                         database.SaveDinos();
                         break;
                     // weight in tons  
@@ -126,8 +132,7 @@ namespace JurassicPark
 
                     case "S":
 
-
-
+                        break;
                     case "Q":
                         keepGoing = false;
                         break;
@@ -135,70 +140,62 @@ namespace JurassicPark
                         Console.WriteLine("That was not a valid selection!");
                         break;
                 }
+                database.SaveDinos();
             }
         }
 
         private static void TransferMenu(DinosDatabase database)
         {
-            var nameT = PromptForString("Please type the name of the Dinosaur");
-            Dino foundDinoT = database.FindDinos(nameT);
-            if (foundDinoT == null)
+            var name = PromptForString("Please type the name of the Dinosaur");
+            Dino foundDino = database.FindDinos(name);
+            if (foundDino == null)
             {
                 Console.WriteLine("No match found in database!");
             }
             else
             {
-                Console.WriteLine($"Found! {foundDinoT.Name} is in encloser {foundDinoT.Enclosure} ");
-                foundDinoT.Enclosure = PromptForInteger("What is the new enclosure number?");
+                Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
+                foundDino.Enclosure = PromptForInteger("What is the new enclosure number?");
             }
         }
 
         private static void FindMenu(DinosDatabase database)
         {
-            var nameF = PromptForString("Please type the name of the Dinosaur");
-            Dino foundDinoF = database.FindDinos(nameF);
-            if (foundDinoF == null)
+            var name = PromptForString("Please type the name of the Dinosaur");
+            Dino foundDino = database.FindDinos(name);
+            if (foundDino == null)
             {
                 Console.WriteLine("No match found in database!");
             }
             else
             {
-                Console.WriteLine($"Found! {foundDinoF.Name} is in encloser {foundDinoF.Enclosure} ");
+                Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
             }
         }
 
-        private static void AddMenu()
-        {
-            var dino = new Dino();
-
-            dino.Name = PromptForString("What is the name of the dinosaur?");
-            dino.Diet = PromptForString("Is the dinosaur a carnivore or herbivore?");
-            dino.Weight = PromptForInteger("In tons, what is the weight of the dinosaur?");
-            dino.Enclosure = PromptForInteger("What is the number of the enclosure?");
-        }
 
         private static void RemoveMenu(DinosDatabase database)
         {
-            var nameR = PromptForString("Please type the name of the Dinosaur");
-            Dino foundDinoR = database.FindDinos(nameR);
-            if (foundDinoR == null)
+            var name = PromptForString("Please type the name of the Dinosaur");
+            Dino foundDino = database.FindDinos(name);
+            if (foundDino == null)
             {
                 Console.WriteLine("No match found in database!");
             }
             else
             {
-                Console.WriteLine($"Found! {foundDinoR.Name} is in encloser {foundDinoR.Enclosure} ");
+                Console.WriteLine($"Found! {foundDino.Name} is in encloser {foundDino.Enclosure} ");
                 var confirm = PromptForString("Please confirm removal of dinosaur. [Y/N]").ToUpper();
                 if (confirm == "Y")
                 {
-                    database.RemoveDinos(foundDinoR);
+                    database.RemoveDinos(foundDino);
                 }
             }
         }
 
         private static void DisplayMenu(DinosDatabase database)
         {
-            var name = PromptForString("Please type the name of the Dinosaur");
+            var name = PromptForString("Please type the name of the Dinosaur: ");
             Dino foundDino = database.FindDinos(name);
             if (foundDino == null)
             {
