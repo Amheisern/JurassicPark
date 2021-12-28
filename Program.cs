@@ -102,11 +102,13 @@ namespace JurassicPark
 
                     case "R":
                         RemoveMenu(database);
+                        database.SaveDinos();
                         break;
 
 
                     case "A":
                         AddMenu();
+                        database.SaveDinos();
                         break;
                     // weight in tons  
 
@@ -118,6 +120,7 @@ namespace JurassicPark
 
                     case "T":
                         TransferMenu(database);
+                        database.SaveDinos();
                         break;
 
 
