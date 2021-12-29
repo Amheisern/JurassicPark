@@ -114,7 +114,7 @@ namespace JurassicPark
                         dino.Enclosure = PromptForInteger("What is the number of the enclosure? : ");
                         Console.WriteLine($"Added on{dino.Date}");
                         database.AddDinos(dino);
-                        database.SaveDinos();
+                        //database.SaveDinos();
                         break;
                     // weight in tons  
 
@@ -131,7 +131,7 @@ namespace JurassicPark
 
 
                     case "S":
-
+                        database.ShowDinos(database.Dinos);
                         break;
                     case "Q":
                         keepGoing = false;

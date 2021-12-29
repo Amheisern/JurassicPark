@@ -9,7 +9,7 @@ namespace JurassicPark
 {
     class DinosDatabase
     {
-        private List<Dino> Dinos { get; set; } = new List<Dino>();
+        public List<Dino> Dinos { get; set; } = new List<Dino>();
 
         private string FileName = "DraftsData.csv";
 
@@ -56,11 +56,11 @@ namespace JurassicPark
         }
         public void ShowDinos(List<Dino> dinos)
         {
-            var numberOfCarnivore = dinos.Where(dino => dino.Diet.Contains("Carnivore"))
+            var numberOfCarnivore = dinos.Where(dino => dino.Diet.Contains("carnivore"))
             .Count();
-            var numberOfHerbivore = dinos.Where(dino => dino.Diet.Contains("Herbivore"))
+            var numberOfHerbivore = dinos.Where(dino => dino.Diet.Contains("herbivore"))
             .Count();
-            Console.WriteLine($"we currently have {numberOfCarnivore} and {numberOfHerbivore}");
+            Console.WriteLine($"we currently have {numberOfCarnivore} carnivores and {numberOfHerbivore}herbivores");
         }
     }
 }
