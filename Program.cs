@@ -69,7 +69,7 @@ namespace JurassicPark
         {
             // our dino database
             var database = new DinosDatabase();
-
+            database.LoadDinos();
             // Should we keep showing out menu
             var keepGoing = true;
 
@@ -102,7 +102,7 @@ namespace JurassicPark
 
                     case "R":
                         RemoveMenu(database);
-                        database.SaveDinos();
+                        //database.SaveDinos();
                         break;
 
 
@@ -126,7 +126,7 @@ namespace JurassicPark
 
                     case "T":
                         TransferMenu(database);
-                        database.SaveDinos();
+                        // database.SaveDinos();
                         break;
 
 
