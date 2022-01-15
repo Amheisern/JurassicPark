@@ -1,10 +1,13 @@
 {
   "folders": [
 	{
-		"path": "."
+		"path": "..\\sql-intro"
 	},
 	{
-		"path": "..\\SuncoastHumanResources"
+		"path": "..\\net-iteration"
+	},
+	{
+		"path": "."
 	}
 ],
   "settings": {}
